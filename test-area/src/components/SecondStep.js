@@ -6,14 +6,20 @@ const SecondStep = (props) => {
   const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    fetch(`https://tweakplan.com/JavaScriptDemoSubmission-1.0/candidates/444837`, {
+        method: 'patch',
+        body:JSON.stringify({
+            completed: true
+        }),
+      .then(response => response.json())
+      .then(json => console.log(json))
   };
 
   return (
     <Form className="input-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="col-md-6 offset-md-3">
         <Form.Group controlId="first_name">
-          <Form.Label>Details</Form.Label>
+          <Form.Label>etails</Form.Label>
           <Form.Control
             type="email"
             name="user_email"
@@ -32,7 +38,6 @@ const SecondStep = (props) => {
             <p className="errorMsg">{errors.user_email.message}</p>
           )}
         </Form.Group>
-
 
 
         <Button variant="primary" type="submit">
