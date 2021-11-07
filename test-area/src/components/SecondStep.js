@@ -13,14 +13,14 @@ const SecondStep = (props) => {
     <Form className="input-form" onSubmit={handleSubmit(onSubmit)}>
       <div className="col-md-6 offset-md-3">
         <Form.Group controlId="first_name">
-          <Form.Label>Email</Form.Label>
+          <Form.Label>Details</Form.Label>
           <Form.Control
             type="email"
             name="user_email"
-            placeholder="Enter your email address"
+            placeholder="Enter your url and Secret"
             autoComplete="off"
             ref={register({
-              required: 'Email is required.',
+              required: 'Email and Secret is required.',
               pattern: {
                 value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
                 message: 'Email is not valid.'
@@ -33,26 +33,7 @@ const SecondStep = (props) => {
           )}
         </Form.Group>
 
-        <Form.Group controlId="password">
-          <Form.Label>Secret</Form.Label>
-          <Form.Control
-            type="password"
-            name="user_password"
-            placeholder="Tell us your secret"
-            autoComplete="off"
-            ref={register({
-              required: 'Password is required.',
-              minLength: {
-                value: 6,
-                message: 'Password should have at-least 6 characters.'
-              }
-            })}
-            className={`${errors.user_password ? 'input-error' : ''}`}
-          />
-          {errors.user_password && (
-            <p className="errorMsg">{errors.user_password.message}</p>
-          )}
-        </Form.Group>
+
 
         <Button variant="primary" type="submit">
           Next
